@@ -10,11 +10,11 @@ public class Worker extends Thread {
     }
 
     public void start() {
-        int succesTask = 0;
+        int successTask = 0;
         int errorTask = 0;
         for (int i = 1; i < 101; i++) {
             if (i == 33) {
-                errorCallback.onError("Çàäà÷à " + i  +" - îøèáêà âûïîëíåíèÿ!");
+                errorCallback.onError("Ð—Ð°Ð´Ð°Ñ‡Ð° " + i  +" - Ð¾ÑˆÐ¸Ð±ÐºÐ° Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ!");
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException ex) {
@@ -23,14 +23,14 @@ public class Worker extends Thread {
                 errorTask ++;
                 continue;
             }
-            callback.onDone("Çàäà÷à " + i + " âûïîëíåíà.");
+            callback.onDone("Ð—Ð°Ð´Ð°Ñ‡Ð° " + i + " ÑƒÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð°.");
             try {
                 Thread.sleep(100);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-            succesTask ++;
+            successTask ++;
         }
-        System.out.println("Óñïåøíî âûïîëíåíî: " + succesTask + " çàäà÷. Îøèáêè âûïîëíåíèÿ: " + errorTask );
+        System.out.println("Ð£ÑÐ¿ÐµÑˆÐ½Ð¾ Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¾ " + successTask + " Ð·Ð°Ð´Ð°Ñ‡Ð¸. ÐžÑˆÐ¸Ð±Ð¾Ðº Ð²Ñ‹Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ñ: " + errorTask );
     }
 }
